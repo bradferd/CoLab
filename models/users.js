@@ -1,57 +1,23 @@
-/* 
- * Place all functions, classes, and/or DB schemas here for a single 
- * model.
- */
+const mongoose = require('./connection.js')
 
-/* Step 1
- *
- * TODO: import mongoose connection
- * NOTE: skip this if you are not using mongoose
- *
- */
-//const mongoose = require('./connection.js')
+const UserSchema = new mongoose.Schema({
+  username: String,
+  password: String
+})
 
-/* Step 1 alternative
- *
- * TODO: make a global variable to act as an in memory database. 
- * NOTE: doing this WILL NOT persist your data and you will loose
- * your data once you stop running your server.
- *
- */
-global.sampleModel = [];
+const UserCollection = mongoose.model('Users', UserSchema, 'help')
 
-/* Step 2
- *
- * TODO: create model schema 
- * NOTE: skip this if you are not using mongoose
- *
- */
-//const SampleModelSchema = new mongoose.Schema({
-//  name: String
-//})
+const getUser = userId => UserCollection.findById(userId)
 
-/* Step 3
- *
- * TODO: create collection API
- * NOTE: skip this if you are not using mongoose
- *
- */
-//const SampleCollection = mongoose.model('Sample', SampleModelSchema)
+const newUser = newUser => UserCollection.create(newUser)
 
-/* Step 4
- *
- * TODO: delete this it's just a sample
- *
- */
-function getHelloWorldString() {
-  return 'hello world'
-}
+const editUser = (userId, updateUser) => UserCollection.findByIdAndUpdate(userId, updateUser)
 
-/* Step 5
- *
- * TODO: export all functions from this file by adding their names as keys to this
- * object
- */
+const deleteUser = (userId) => UserCollection.findByIdAndDelete(userId)
+
 module.exports = {
-  getHelloWorldString
+  getUser,
+  newUser,
+  editUser,
+  deleteUser
 }

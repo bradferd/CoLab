@@ -3,12 +3,14 @@ const app = express()
 const methodOverride = require('method-override')
 
 const { userRouter } = require('./controllers/user.js')
+const { LandingRouter } = require('./controllers/landing.js')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + "/public"))
 app.set('view engine', 'hbs')
+app.use('/', LandingRouter)
 app.use('/user', userRouter)
 
 

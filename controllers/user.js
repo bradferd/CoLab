@@ -6,8 +6,16 @@ userRouter.get('/new', (req, res) => {
   res.render('user/newUser.hbs')
 })
 
-userRouter.get('/:_id', (req, res) => {
-  res.render('user/showUser.hbs')
+userRouter.get('/all', (req, res) => {
+  userApi.getAllUsers()
+    .then(users => res.render('user/showAllUsers.hbs', { users }))
+})
+
+userRouter.get('/:userId', (req, res) => {
+  userApi.getUser(req.params.userId)
+    .then(user => {
+      res.render('user/showUser.hbs', { user })
+    })
 })
 
 userRouter.get('/:_id/edit', (req, res) => {
@@ -15,7 +23,7 @@ userRouter.get('/:_id/edit', (req, res) => {
 })
 
 userRouter.post('/new', (req, res) => {
-  userApi.newUser(req.params.body)
+  userApi.newUser(req.body)
     .then(res.send('User added!'))
 })
 

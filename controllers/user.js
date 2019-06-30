@@ -14,6 +14,11 @@ userRouter.get('/:_id/edit', (req, res) => {
   res.render('user/editUser.hbs')
 })
 
+userRouter.post('/new', (req, res) => {
+  userApi.newUser(req.params.body)
+    .then(res.send('User added!'))
+})
+
 module.exports = {
   userRouter
 }

@@ -38,7 +38,7 @@ UserRouter.put('/:userId', (req, res) => {
     })
 })
 
-UserRouter.delete('/:userId/delete', (req, res) => {
+UserRouter.delete('/:userId', (req, res) => {
   userApi.deleteUser(req.params.userId)
     .then(res.send('User deleted!'))
 })

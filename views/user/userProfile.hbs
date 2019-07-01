@@ -2,9 +2,9 @@
 
 <h2>{{user.username}}</h2>
 
-<a href="/user/{{users._id}}/edit">Edit User</a>
+<a href="/user/{{user._id}}/edit">Edit User</a>
 
-<form action="/user/{{users._id}}?_method=DELETE" method="post">
+<form action="/user/{{user._id}}?_method=DELETE" method="post">
     <input type="submit" value="Delete User">
 </form>
 

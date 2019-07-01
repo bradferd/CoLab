@@ -1,6 +1,6 @@
 const express = require('express')
 const TasksRouter = express.Router()
-const taskApi = require('../models/tasks')
+const taskApi = require('../models/tasks.js')
 
 TasksRouter.get('/', (req, res) => {
     res.send("Hello from Tasks page")
@@ -16,6 +16,13 @@ TasksRouter.get('/:taskId', (req, res) => {
 
 TasksRouter.get('/:taskId/edit', (req, res) => {
     res.send("task edit form")
+})
+
+TasksRouter.post('/', (req, res) => {
+    taskApi.newTask(req.body)
+        .then(() => {
+            res.send('task posted!')
+        })
 })
 
 TasksRouter.put('/:taskId', (req, res) => {

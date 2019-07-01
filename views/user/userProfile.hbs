@@ -1,0 +1,18 @@
+<a href="/user/all">Back to all users</a>
+
+<h2>{{user.username}}</h2>
+
+<a href="/user/{{users._id}}/edit">Edit User</a>
+
+<form action="/user/{{users._id}}?_method=DELETE" method="post">
+    <input type="submit" value="Delete User">
+</form>
+
+<h3>Projects</h3>
+
+<ul>
+    {{#each project}}
+        <li>{{name}}</li>
+        <li>{{description}}</li>
+    {{/each}}
+</ul>

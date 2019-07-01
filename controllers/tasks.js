@@ -18,6 +18,13 @@ TasksRouter.get('/:taskId/edit', (req, res) => {
     res.send("task edit form")
 })
 
+TasksRouter.put('/:taskId', (req, res) => {
+    taskApi.updateTask(req.params.taskId, req.body)
+        .then(() => {
+            res.send('task updated!')
+        })
+})
+
 TasksRouter.delete('/:taskId/delete', (req, res) => {
     taskApi.deleteTask(req.params.taskId)
         .then(res.send("Task deleted!"))

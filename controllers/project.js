@@ -3,7 +3,7 @@ const express = require('express'),
     ProjectRouter = express.Router();
 
 ProjectRouter.get('/new', (req, res) => {
-    res.send('New Project Form')
+    res.render('projects/newProject.hbs')
 })
 
 ProjectRouter.get('/:userId', (req, res) => {

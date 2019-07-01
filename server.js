@@ -14,8 +14,8 @@ app.use(express.static(__dirname + "/public"))
 app.set('view engine', 'hbs')
 app.use('/', LandingRouter)
 app.use('/user', UserRouter)
-app.use('/projects', ProjectRouter)
-app.use('/tasks', TasksRouter)
+app.use('/user/:userId/projects', ProjectRouter)
+app.use('/user/:userId/projects/:projectId/tasks', TasksRouter)
 
 
 const PORT = process.env.PORT || 3000

@@ -11,13 +11,21 @@ ProjectRouter.get('/:projectId', (req, res) => {
     projectApi.getProject(req.params.projectId)
         .then(project => {
             taskApi.getTaskByProject(project._id)
-                .then(res.render('projects/showProject', { project, tasks })
-                )
+                .then(tasks => {
+                    res.render('projects/showProject', { project, tasks })
+                })
         })
 })
 
 ProjectRouter.get('/:projectId/edit', (req, res) => {
     res.send('Project edit form');
+})
+
+ProjectRouter.put('/:projectId', (req, res) => {
+    projectApi.editProject(req.params.projectId, req.body)
+        .then(() => {
+            res.send("project updated")
+        })
 })
 
 ProjectRouter.delete('/:projectId/delete', (req, res) => {

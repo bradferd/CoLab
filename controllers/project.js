@@ -21,11 +21,11 @@ ProjectRouter.get('/:projectId/edit', (req, res) => {
     res.send('Project edit form');
 })
 
-ProjectRouter.post('/', (req, res) => {
-    req.body.userId = req.params.projectId
-    foodApi.addFood(req.body)
+ProjectRouter.post('/new', (req, res) => {
+    req.body.userId = req.params.userId
+    projectApi.newProject(req.body)
         .then(() => {
-            res.send('Project item created')
+            res.send('Project created!')
         })
 })
 

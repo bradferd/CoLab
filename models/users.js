@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
   password: String
 })
 
-const UserCollection = mongoose.model('Users', UserSchema, 'help')
+const UserCollection = mongoose.model('Users', UserSchema)
 
 const deleteAllUsers = () => UserCollection.deleteMany()
 

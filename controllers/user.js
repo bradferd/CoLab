@@ -4,12 +4,12 @@ const express = require('express'),
   UserRouter = express.Router()
 
 UserRouter.get('/new', (req, res) => {
-  res.render('user/newUser.hbs')
+  res.render('user/newUser')
 })
 
 UserRouter.get('/all', (req, res) => {
   userApi.getAllUsers()
-    .then(users => res.render('user/showAllUsers.hbs', { users }))
+    .then(users => res.render('user/showAllUsers', { users }))
 })
 
 UserRouter.get('/:userId', (req, res) => {
@@ -23,7 +23,7 @@ UserRouter.get('/:userId', (req, res) => {
 })
 
 UserRouter.get('/:userId/edit', (req, res) => {
-  res.render('user/editUser.hbs')
+  res.render('user/editUser')
 })
 
 UserRouter.post('/new', (req, res) => {

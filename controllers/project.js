@@ -28,7 +28,7 @@ ProjectRouter.put('/:projectId', (req, res) => {
         })
 })
 
-ProjectRouter.delete('/:projectId/delete', (req, res) => {
+ProjectRouter.delete('/:projectId', (req, res) => {
     projectApi.deleteProject(req.params.projectId)
         .then(res.send('Project removed'))
 })

@@ -32,7 +32,7 @@ TasksRouter.put('/:taskId', (req, res) => {
         })
 })
 
-TasksRouter.delete('/:taskId/delete', (req, res) => {
+TasksRouter.delete('/:taskId', (req, res) => {
     taskApi.deleteTask(req.params.taskId)
         .then(res.send("Task deleted!"))
 })

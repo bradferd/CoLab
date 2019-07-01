@@ -1,5 +1,6 @@
 const express = require('express'),
   userApi = require('../models/users.js'),
+  projectApi = require('../models/projects.js'),
   UserRouter = express.Router()
 
 UserRouter.get('/new', (req, res) => {
@@ -14,7 +15,10 @@ UserRouter.get('/all', (req, res) => {
 UserRouter.get('/:userId', (req, res) => {
   userApi.getUser(req.params.userId)
     .then(user => {
-      res.render('user/showUser.hbs', { user })
+      projectApi.getProjectsByUser(user._id)
+        .then(projects => {
+          res.render('user/showUser.hbs', { user, projects })
+        })
     })
 })
 

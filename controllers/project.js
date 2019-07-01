@@ -1,5 +1,6 @@
 const express = require('express'),
     projectApi = require('../models/projects'),
+    taskApi = require('../models/tasks'),
     ProjectRouter = express.Router();
 
 ProjectRouter.get('/new', (req, res) => {
@@ -13,7 +14,11 @@ ProjectRouter.get('/:userId', (req, res) => {
 
 ProjectRouter.get('/:projectId', (req, res) => {
     projectApi.getProject(req.params.projectId)
-        .then(res.send('Hello from Project Page'));
+        .then(project => {
+            taskApi.getTaskByProject(project._id)
+                .then(res.render('projects/showProject', { project, tasks })
+                )
+        })
 })
 
 ProjectRouter.get('/:projectId/edit', (req, res) => {

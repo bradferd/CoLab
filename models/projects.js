@@ -3,12 +3,15 @@ const mongoose = require('./connection.js')
 const ProjectSchema = new mongoose.Schema({
     name: String,
     description: String,
-    userId: mongoose.Types.ObjectId
+    userId:
+    {
+        type: mongoose.Types.ObjectId
+    }
 })
 
 const ProjectCollection = mongoose.model('Projects', ProjectSchema)
 
-const getProjectsByUser = userId => ProjectCollection.find(userId)
+const getProjectsByUser = userId => ProjectCollection.find({ userId })
 
 const getProject = projectId => ProjectCollection.findById(projectId)
 

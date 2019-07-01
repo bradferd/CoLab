@@ -3,9 +3,9 @@ const Users = require("./models/users");
 const { Project } = require("./models/projects");
 const { Task } = require("./models/tasks");
 
-Users.deleteMany()
+Users.deleteAllUsers()
     .then(() => {
-        return Users.deleteMany()
+        return Users.deleteAllUsers()
     })
     .then(() => {
         return Users.create({

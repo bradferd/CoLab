@@ -7,6 +7,8 @@ const UserSchema = new mongoose.Schema({
 
 const UserCollection = mongoose.model('Users', UserSchema, 'help')
 
+const deleteAllUsers = () => UserCollection.deleteMany()
+
 const getAllUsers = () => UserCollection.find()
 
 const getUser = userId => UserCollection.findById(userId)
@@ -18,6 +20,7 @@ const editUser = (userId, updateUser) => UserCollection.findByIdAndUpdate(userId
 const deleteUser = (userId) => UserCollection.findByIdAndDelete(userId)
 
 module.exports = {
+  deleteAllUsers,
   getAllUsers,
   getUser,
   newUser,

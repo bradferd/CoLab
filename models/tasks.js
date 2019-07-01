@@ -8,7 +8,7 @@ const TaskSchema = new mongoose.Schema({
 
 const TasksCollection = mongoose.model('Tasks', TaskSchema)
 
-const getTaskByProject = projectId => TasksCollection.find(projectId)
+const getTaskByProject = projectId => TasksCollection.find({ projectId })
 
 const getTask = taskId => TasksCollection.findById(taskId)
 

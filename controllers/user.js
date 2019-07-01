@@ -17,12 +17,12 @@ UserRouter.get('/:userId', (req, res) => {
     .then(user => {
       projectApi.getProjectsByUser(user._id)
         .then(projects => {
-          res.render('user/showUser.hbs', { user, projects })
+          res.render('user/showUser', { user, projects })
         })
     })
 })
 
-UserRouter.get('/:_id/edit', (req, res) => {
+UserRouter.get('/:userId/edit', (req, res) => {
   res.render('user/editUser.hbs')
 })
 

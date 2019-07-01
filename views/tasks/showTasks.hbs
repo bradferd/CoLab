@@ -4,9 +4,9 @@
 
     <p>{{tasks.description}}</p>
 
-    <a href="/tasks/{{tasks._id}}/edit">Edit User</a>
+    <a href="/tasks/{{tasks._id}}/edit">Edit Task</a>
 
     <form action="/tasks/{{tasks._id}}?_method=DELETE" method="post">
-        <input type="submit" value="Delete Project">
+        <input type="submit" value="Delete Task">
     </form>
 {{/each}}

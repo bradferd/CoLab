@@ -1,60 +1,93 @@
+const mongoose = require("./models/connection")
 const Users = require("./models/users");
-const Projects = require("./models/projects");
-const Tasks = require("./models/tasks");
+const { Project } = require("./models/projects");
+const { Task } = require("./models/tasks");
 
-const data = [
-    {
-        name: "My Project 1",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-    },
-    {
-        name: "Other Project 2",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-    },
-    {
-        name: "Project 3",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-    }
-];
+Users.deleteMany()
+    .then(() => {
+        return Users.deleteMany()
+    })
+    .then(() => {
+        return Users.create({
+            username: 'Brad Bailey',
+            password: 'hello'
+        })
+    })
+    .then(user => {
+        // Once first user is created, add two chirps
+        // The argument 'bugs' is the User AFTER it has successfully been saved to the database.
+        const project1Promise = Project.create({
+            name: "Project 1",
+            description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+            projectId: user._id
+        }).then(project => {
+            user.project.push(project)
+        })
 
-function seedDB() {
-    Projects.remove({}, function (err) {
-        if (err) {
-            console.log(err);
-        }
-        console.log("removed projects!");
-        Tasks.remove({}, function (err) {
-            if (err) {
-                console.log(err);
-            }
-            console.log("removed tasks!");
-            //add a few campgrounds
-            data.forEach(function (seed) {
-                Projects.create(seed, function (err, projects) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log("added a Project");
-                        //create a comment
-                        Tasks.create(
-                            {
-                                name: "Help me please",
-                                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-                            }, function (err, comment) {
-                                if (err) {
-                                    console.log(err);
-                                } else {
-                                    campground.comments.push(comment);
-                                    campground.save();
-                                    console.log("Created new task");
-                                }
-                            });
-                    }
-                });
-            });
-        });
-    });
-    //add a few comments
-}
+        const project2Promise = Project.create({
+            name: "Project 2",
+            description: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+            projectId: user._id
+        }).then(project => {
+            user.project.push(project)
+        })
 
-module.exports = seedDB;
+        return Promise.all([project1Promise, project2Promise]).then(() => {
+            user.save()
+        })
+    })
+    .then(() => {
+        return User.create({
+            username: 'yvette',
+            password: 'hello'
+        })
+    })
+    .then(user => {
+        const project1Promise = Project.create({
+            name: "Finance API",
+            description: "Who's this Duck Dodgers any how?",
+            projectId: user._id
+        }).then(project => {
+            user.project.push(project)
+        })
+        const project2Promise = Project.create({
+            name: "SKU Mapping Product",
+            description: "You're dethpicable.",
+            projectId: user._id
+        }).then(project => {
+            user.project.push(project)
+        })
+
+        return Promise.all([project1Promise, project2Promise]).then(() => {
+            user.save()
+        })
+    })
+    .then(() => {
+        return User.create({
+            username: 'elmerfudd@gmail.com',
+            password: 'hello'
+        })
+    })
+    .then(user => {
+        const project1Promise = Project.create({
+            name: "Project A",
+            description: "Shh. Be vewy vewy quiet. I'm hunting wabbits! Huh-huh-huh-huh!",
+            projectId: user._id
+        }).then(project => {
+            user.project.push(project)
+        })
+
+        const project2Promise = Project.create({
+            name: "Project B",
+            description: 'Kiww da wabbit!',
+            projectId: user._id
+        }).then(chirp => {
+            elmer.chirps.push(chirp)
+        })
+
+        return Promise.all([project1Promise, project2Promise]).then(() => {
+            user.save()
+        })
+    })
+
+process.exit();

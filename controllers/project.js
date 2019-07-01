@@ -1,25 +1,25 @@
 const express = require('express'),
     projectApi = require('../models/projects'),
-    projectRouter = express.Router();
+    ProjectRouter = express.Router();
 
-projectRouter.get('/new', (req, res) => {
+ProjectRouter.get('/new', (req, res) => {
     res.send('New Project Form')
 })
 
-projectRouter.get('/:userId', (req, res) => {
+ProjectRouter.get('/:userId', (req, res) => {
     projectApi.getProjectsByUser(req.params.userId)
         .then(res.send('Hello World'));
 })
 
-projectRouter.get('/:projectId', (req, res) => {
+ProjectRouter.get('/:projectId', (req, res) => {
     projectApi.getProject(req.params.projectId)
         .then(res.send('Hello from Project Page'));
 })
 
-projectRouter.get('/:projectId/edit', (req, res) => {
+ProjectRouter.get('/:projectId/edit', (req, res) => {
     res.send('Project edit form');
 })
 
 module.exports = {
-    projectRouter
+    ProjectRouter
 }

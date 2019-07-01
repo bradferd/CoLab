@@ -1,5 +1,6 @@
 const express = require('express')
-const TasksRouter = express.Router();
+const TasksRouter = express.Router()
+const taskApi = require('../models/tasks')
 
 TasksRouter.get('/', (req, res) => {
     res.send("Hello from Tasks page")

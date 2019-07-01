@@ -2,9 +2,9 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 
-const { userRouter } = require('./controllers/user.js')
+const { UserRouter } = require('./controllers/user.js')
 const { LandingRouter } = require('./controllers/landing.js')
-const { projectRouter } = require('./controllers/project')
+const { ProjectRouter } = require('./controllers/project')
 const { TasksRouter } = require('./controllers/tasks.js')
 
 app.use(express.urlencoded({ extended: true }))
@@ -13,8 +13,8 @@ app.use(methodOverride('_method'))
 app.use(express.static(__dirname + "/public"))
 app.set('view engine', 'hbs')
 app.use('/', LandingRouter)
-app.use('/user', userRouter)
-app.use('/projects', projectRouter)
+app.use('/user', UserRouter)
+app.use('/projects', ProjectRouter)
 app.use('/tasks', TasksRouter)
 
 

@@ -1,4 +1,18 @@
-{{#each projects}}
-    <p>{{name}}</p>
-    <p>{{description}}</p>
-{{/each}}
+<a href="/user/all">Back to all users</a>
+
+<h2>{{project.name}}</h2>
+
+<a href="/projects/{{project._id}}/edit">Edit User</a>
+
+<form action="/projects/{{project._id}}?_method=DELETE" method="post">
+    <input type="submit" value="Delete Project">
+</form>
+
+<h3>Jobs</h3>
+
+<ul>
+    {{#each tasks}}
+        <li>{{name}}</li>
+        <li>{{description}}</li>
+    {{/each}}
+</ul>

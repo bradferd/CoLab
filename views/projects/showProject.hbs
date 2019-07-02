@@ -1,17 +1,29 @@
-<h2>{{project.name}}</h2>
+<div class="jumbotron text-center">
+    <h2 class="display-4">{{project.name}}</h2>
+    <div class="container">
+    <div class="row justify-content-center">
+        <a class="btn btn-warning" href="/user/{{project.userId}}/projects/{{project._id}}/edit">Edit Project</a>
 
-<a href="/user/{{project.userId}}/projects/{{project._id}}/edit">Edit Project</a>
+        <form action="/user/{{project.userId}}/projects/{{project._id}}?_method=DELETE" method="post">
+            <input class="btn btn-danger ml-5" type="submit" value="Delete Project">
+        </form>
+    </div>
+</div>
+</div>
+<div class="container text-center">
+    <h3>Looking for help with:</h3>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ul>
+                {{#each tasks}}
+                    <li><a href="{{projectId}}/tasks/{{_id}}">{{name}}</a></li>
+                {{/each}}
+            </ul>
 
-<form action="/user/{{project.userId}}/projects/{{project._id}}?_method=DELETE" method="post">
-    <input type="submit" value="Delete Project">
-</form>
-
-<h3>Jobs</h3>
-
-<a href="/user/{{project.userId}}/projects/{{project._id}}/tasks/new">Add New Tasks!</a>
-
-<ul>
-    {{#each tasks}}
-        <li><a href="{{projectId}}/tasks/{{_id}}">{{name}}</a></li>
-    {{/each}}
-</ul>
+            <a class="btn btn-primary"
+            href="/user/{{project.userId}}/projects/{{project._id}}/tasks/new">+ New Tasks</a>
+        </div>
+    </div>
+</div>

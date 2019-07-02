@@ -29,7 +29,8 @@ ProjectRouter.get('/:projectId', (req, res) => {
 })
 
 ProjectRouter.get('/:projectId/edit', (req, res) => {
-    res.send('Project edit form');
+    projectApi.getProject(req.params.projectId)
+        .then(project => res.render('projects/editProject', { project }))
 })
 
 ProjectRouter.put('/:projectId', (req, res) => {

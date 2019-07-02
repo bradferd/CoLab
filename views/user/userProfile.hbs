@@ -1,17 +1,34 @@
-<h2>{{user.username}}</h2>
+<h2 class="display-4 text-center">{{user.username}}'s Projects</h2>
 
-<a href="/user/{{user._id}}/edit">Edit User</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <a 
+            href="/user/{{user._id}}/edit"
+            class="btn btn-warning"
+        >Edit User</a>
 
-<form action="/user/{{user._id}}?_method=DELETE" method="post">
-    <input type="submit" value="Delete User">
-</form>
+        <form action="/user/{{user._id}}?_method=DELETE" method="post">
+            <input 
+                type="submit" 
+                value="Delete User"
+                class="btn btn-danger ml-5"
+            >
+        </form>
+    </div>
+</div>
 
-<h3>Projects</h3>
-
-<ul>
-    {{#each projects}}
-        <li><a href="/user/{{userId}}/projects/{{_id}}">{{name}}</a></li>
-    {{/each}}
-</ul>
-
-<a href="{{user._id}}/projects/new">Add New Project</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <ul class="list-group mb-5 mt-5">
+                {{#each projects}}
+                    <li class="list-group-item"><a href="/user/{{userId}}/projects/{{_id}}">{{name}}</a></li>
+                {{/each}}
+            </ul>
+            <a 
+                href="{{user._id}}/projects/new"
+                class="btn btn-primary"
+            >Add New Project</a>
+        </div>
+    </div>
+</div>

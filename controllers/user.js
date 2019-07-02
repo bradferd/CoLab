@@ -24,7 +24,8 @@ UserRouter.get('/:userId', (req, res) => {
 })
 
 UserRouter.get('/:userId/edit', (req, res) => {
-  res.render('user/editUser')
+  userApi.getUser(req.params.userId)
+    .then(user => res.render('user/editUser', { user }))
 })
 
 UserRouter.post('/new', (req, res) => {
@@ -33,9 +34,9 @@ UserRouter.post('/new', (req, res) => {
 })
 
 UserRouter.put('/:userId', (req, res) => {
-  userApi.updateUser(req.params.userId, req.body)
+  userApi.editUser(req.params.userId, req.body)
     .then(() => {
-      res.resend('User Updated!')
+      res.send('User Updated!')
     })
 })
 

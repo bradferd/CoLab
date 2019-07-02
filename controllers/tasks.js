@@ -23,9 +23,10 @@ TasksRouter.get('/:taskId/edit', (req, res) => {
 })
 
 TasksRouter.post('/', (req, res) => {
+    req.body.projectId = req.params.projectId
     taskApi.newTask(req.body)
-        .then(() => {
-            res.send('task posted!')
+        .then((task) => {
+            res.send(task.projectId)
         })
 })
 

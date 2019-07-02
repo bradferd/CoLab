@@ -14,13 +14,22 @@
     <h3>Looking for help with:</h3>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <ul>
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <div class="list-group mb-5 mt-5">
                 {{#each tasks}}
-                    <li><a href="{{projectId}}/tasks/{{_id}}">{{name}}</a></li>
+                    <a 
+                        href="{{projectId}}/tasks/{{_id}}"
+                        class="list-group-item list-group-item-action
+                        flex-colum align-items-start"
+                    >
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{name}}</h5>
+                        </div>
+                        <p class="mb-1">{{description}}</p>
+                    </a>
                 {{/each}}
-            </ul>
+            </div>
 
             <a class="btn btn-primary"
             href="/user/{{project.userId}}/projects/{{project._id}}/tasks/new">+ New Tasks</a>

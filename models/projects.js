@@ -3,10 +3,7 @@ const mongoose = require('./connection.js')
 const ProjectSchema = new mongoose.Schema({
     name: String,
     description: String,
-    userId:
-    {
-        type: mongoose.Types.ObjectId
-    }
+    userId: mongoose.Types.ObjectId
 })
 
 const ProjectCollection = mongoose.model('Projects', ProjectSchema)

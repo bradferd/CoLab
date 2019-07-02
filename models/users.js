@@ -17,7 +17,7 @@ const newUser = newUser => UserCollection.create(newUser)
 
 const editUser = (userId, updateUser) => UserCollection.findByIdAndUpdate(userId, updateUser)
 
-const deleteUser = (userId) => UserCollection.findByIdAndDelete(userId)
+const deleteUser = userId => UserCollection.findByIdAndDelete(userId)
 
 module.exports = {
   deleteAllUsers,

@@ -1,5 +1,5 @@
 const express = require('express')
-const TasksRouter = express.Router()
+const TasksRouter = express.Router({ mergeParams: true })
 const taskApi = require('../models/tasks.js')
 
 TasksRouter.get('/', (req, res) => {

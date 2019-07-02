@@ -1,10 +1,21 @@
 const express = require('express'),
+    userApi = require('../models/users'),
     projectApi = require('../models/projects'),
     taskApi = require('../models/tasks'),
-    ProjectRouter = express.Router();
+    ProjectRouter = express.Router({ mergeParams: true });
 
 ProjectRouter.get('/new', (req, res) => {
-    res.render('projects/newProject')
+    userApi.getUser(req.params.userId)
+        .then((user) => res.render('projects/newProject', { user }))
+})
+
+ProjectRouter.post('/', (req, res) => {
+    console.log(req.params.userId)
+    req.body.userId = req.params.userId
+    projectApi.newProject(req.body)
+        .then((project) => {
+            res.send(project.userId)
+        })
 })
 
 ProjectRouter.get('/:projectId', (req, res) => {
@@ -19,14 +30,6 @@ ProjectRouter.get('/:projectId', (req, res) => {
 
 ProjectRouter.get('/:projectId/edit', (req, res) => {
     res.send('Project edit form');
-})
-
-ProjectRouter.post('/new', (req, res) => {
-    req.body.userId = req.params.userId
-    projectApi.newProject(req.body)
-        .then(() => {
-            res.send('Project created!')
-        })
 })
 
 ProjectRouter.put('/:projectId', (req, res) => {

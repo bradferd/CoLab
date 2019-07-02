@@ -35,20 +35,22 @@ TasksRouter.post('/', (req, res) => {
     req.body.projectId = req.params.projectId
     taskApi.newTask(req.body)
         .then((task) => {
-            res.send(task.projectId)
+            res.redirect(`/user/${req.params.userId}/projects/${req.params.projectId}`)
         })
 })
 
 TasksRouter.put('/:taskId', (req, res) => {
     taskApi.updateTask(req.params.taskId, req.body)
         .then(() => {
-            res.send('task updated!')
+            res.redirect(`user/${req.params.userId}/projects/${req.params.projectId}`)
         })
 })
 
 TasksRouter.delete('/:taskId', (req, res) => {
     taskApi.deleteTask(req.params.taskId)
-        .then(res.send("Task deleted!"))
+        .then(() => {
+            res.redirect(`user/${req.params.userId}/projects/${req.params.projectId}`)
+        })
 })
 
 module.exports = {

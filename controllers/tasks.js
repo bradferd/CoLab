@@ -34,7 +34,7 @@ TasksRouter.get('/:taskId/edit', (req, res) => {
 TasksRouter.post('/', (req, res) => {
     req.body.projectId = req.params.projectId
     taskApi.newTask(req.body)
-        .then((task) => {
+        .then(() => {
             res.redirect(`/user/${req.params.userId}/projects/${req.params.projectId}`)
         })
 })
@@ -42,14 +42,14 @@ TasksRouter.post('/', (req, res) => {
 TasksRouter.put('/:taskId', (req, res) => {
     taskApi.updateTask(req.params.taskId, req.body)
         .then(() => {
-            res.redirect(`user/${req.params.userId}/projects/${req.params.projectId}`)
+            res.redirect(`/user/${req.params.userId}/projects/${req.params.projectId}`)
         })
 })
 
 TasksRouter.delete('/:taskId', (req, res) => {
     taskApi.deleteTask(req.params.taskId)
         .then(() => {
-            res.redirect(`user/${req.params.userId}/projects/${req.params.projectId}`)
+            res.redirect(`/user/${req.params.userId}/projects/${req.params.projectId}`)
         })
 })
 

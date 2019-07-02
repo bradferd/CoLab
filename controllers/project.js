@@ -12,8 +12,8 @@ ProjectRouter.get('/new', (req, res) => {
 ProjectRouter.post('/', (req, res) => {
     req.body.userId = req.params.userId
     projectApi.newProject(req.body)
-        .then((project) => {
-            res.send(project.userId)
+        .then(() => {
+            res.redirect(`/user/${req.params.userId}`)
         })
 })
 
@@ -35,13 +35,13 @@ ProjectRouter.get('/:projectId/edit', (req, res) => {
 ProjectRouter.put('/:projectId', (req, res) => {
     projectApi.editProject(req.params.projectId, req.body)
         .then(() => {
-            res.send("project updated")
+            res.redirect(`/user/${req.params.userId}`)
         })
 })
 
 ProjectRouter.delete('/:projectId', (req, res) => {
     projectApi.deleteProject(req.params.projectId)
-        .then(res.send('Project removed'))
+        .then(res.redirect(`/user/${req.params.userId}`))
 })
 
 module.exports = {

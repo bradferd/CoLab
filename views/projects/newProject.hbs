@@ -1,10 +1,14 @@
-{{!-- <div class="container text-center">
+<div class="container text-center">
     <h4>Add your project!</h4>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-lg">
-            <form class="justify-content-center" method="POST" action="new">
+            <form 
+                class="justify-content-center" 
+                method="POST" 
+                action="/user/{{user._id}}/projects"
+            >
                 <div class="form-group">
                     <label>Project Name</label>
                     <input 
@@ -12,7 +16,6 @@
                         type="text" 
                         name="name" 
                         placeholder="Project Name"
-                        value="wow"
                     >
                 </div>
                 <div class="form-group">
@@ -21,17 +24,11 @@
                         class="form-control"
                         type="text" 
                         name="description" 
-                        placeholder="description"
-                        value="wow"
+                        placeholder="Description"
                         >
                 </div>
                 <button class="btn btn-success" type="submit">Submit</button>
             </form>
         </div>
     </div>
-</div> --}}
-<form action="/user/{{user._id}}/projects" method="POST">
-    <input type="text" name="name">
-    <input type="text" name="description">
-    <button type="submit">Submit</button>
-</form>
+</div>

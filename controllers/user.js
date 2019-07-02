@@ -36,7 +36,7 @@ UserRouter.post('/new', (req, res) => {
 UserRouter.put('/:userId', (req, res) => {
   userApi.editUser(req.params.userId, req.body)
     .then(() => {
-      res.send('User Updated!')
+      res.redirect(`${req.params.userId}`)
     })
 })
 

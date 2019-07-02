@@ -10,7 +10,6 @@ ProjectRouter.get('/new', (req, res) => {
 })
 
 ProjectRouter.post('/', (req, res) => {
-    console.log(req.params.userId)
     req.body.userId = req.params.userId
     projectApi.newProject(req.body)
         .then((project) => {

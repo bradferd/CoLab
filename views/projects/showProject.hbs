@@ -10,9 +10,10 @@
 
 <h3>Jobs</h3>
 
+<a href="/user/{{project.userId}}/projects/{{project._id}}/tasks/new">Add New Tasks!</a>
+
 <ul>
     {{#each tasks}}
-        <li><a href="/tasks/{{tasks._id}}">{{name}}</a></li>
-        <li>{{description}}</li>
+        <li><a href="/tasks/{{_id}}">{{name}}</a></li>
     {{/each}}
 </ul>

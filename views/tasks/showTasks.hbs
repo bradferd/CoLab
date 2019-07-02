@@ -1,12 +1,11 @@
 <a href="/users/all">Back to all users</a>
-{{#each}}
-    <h2>{{tasks.name}}</h2>
 
-    <p>{{tasks.description}}</p>
+    <h2>{{task.name}}</h2>
 
-    <a href="/tasks/{{tasks._id}}/edit">Edit Task</a>
+    <p>{{task.description}}</p>
 
-    <form action="/tasks/{{tasks._id}}?_method=DELETE" method="post">
+    <a href="/tasks/{{task._id}}/edit">Edit Task</a>
+
+    <form action="/tasks/{{task._id}}?_method=DELETE" method="post">
         <input type="submit" value="Delete Task">
     </form>
-{{/each}}

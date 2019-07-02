@@ -15,7 +15,10 @@ TasksRouter.get('/new', (req, res) => {
 })
 
 TasksRouter.get('/:taskId', (req, res) => {
-    res.send("single task page")
+    taskApi.getTask(req.params.taskId)
+        .then(task => {
+            res.render('tasks/showTasks', { task })
+        })
 })
 
 TasksRouter.get('/:taskId/edit', (req, res) => {

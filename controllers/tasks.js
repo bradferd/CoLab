@@ -22,7 +22,13 @@ TasksRouter.get('/:taskId', (req, res) => {
 })
 
 TasksRouter.get('/:taskId/edit', (req, res) => {
-    res.send("task edit form")
+    taskApi.getTask(req.params.taskId)
+        .then(task => {
+            projectApi.getProject(req.params.projectId)
+                .then(project => {
+                    res.render('tasks/editTask', { task, project })
+                })
+        })
 })
 
 TasksRouter.post('/', (req, res) => {

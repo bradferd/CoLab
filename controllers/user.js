@@ -30,7 +30,7 @@ UserRouter.get('/:userId/edit', (req, res) => {
 
 UserRouter.post('/new', (req, res) => {
   userApi.newUser(req.body)
-    .then(res.send('User added!'))
+    .then(res.redirect('all'))
 })
 
 UserRouter.put('/:userId', (req, res) => {
@@ -42,7 +42,7 @@ UserRouter.put('/:userId', (req, res) => {
 
 UserRouter.delete('/:userId', (req, res) => {
   userApi.deleteUser(req.params.userId)
-    .then(res.send('User deleted!'))
+    .then(res.redirect('all'))
 })
 
 module.exports = {

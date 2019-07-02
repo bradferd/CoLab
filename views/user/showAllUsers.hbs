@@ -1,7 +1,18 @@
-<h2>All Users</h2>
+<div class="jumbotron text-center">
+    <h1 class="display-3">All Users</h1>
+</div>
 
-{{#each users}}
-    <div>
-        <a href="/user/{{_id}}">{{username}}</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <ul class="list-group text-center">
+                {{#each users}}
+                        <li class="list-group-item" ><a
+                                href="/user/{{_id}}">
+                                {{username}}</a>
+                        </li>
+                {{/each}}
+            </ul>
+        </div>
     </div>
-{{/each}}
+</div>

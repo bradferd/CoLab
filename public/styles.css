@@ -2,6 +2,15 @@
   font-family: 'Roboto', sans-serif;
 }
 
+body {
+  color: #3a3335;
+  background-color: #fffcf9;
+}
+
+.jumbotron {
+  background-image: url('https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1039');
+}
+
 .carousel-caption {
   position: absolute;
   z-index: 1;

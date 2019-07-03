@@ -10,6 +10,8 @@ const ProjectCollection = mongoose.model('Projects', ProjectSchema)
 
 const getProjectsByUser = userId => ProjectCollection.find({ userId })
 
+const getAllProjects = () => ProjectCollection.find()
+
 const getProject = projectId => ProjectCollection.findById(projectId)
 
 const newProject = projectObject => ProjectCollection.create(projectObject)
@@ -19,6 +21,7 @@ const editProject = (projectId, projectObject) => ProjectCollection.findByIdAndU
 const deleteProject = projectId => ProjectCollection.findByIdAndDelete(projectId)
 
 module.exports = {
+    getAllProjects,
     getProjectsByUser,
     getProject,
     newProject,

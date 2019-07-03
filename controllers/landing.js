@@ -9,7 +9,11 @@ LandingRouter.get('/', (req, res) => {
 LandingRouter.get('/main', (req, res) => {
     projectsApi.getAllProjects()
         .then(projects => {
-            res.render('landing/allProjects', { projects })
+            const newProjects = projects.map((p) => {
+                p.shortDesc = p.description.substring(0, 143) + '...'
+                return p
+            })
+            res.render('landing/allProjects', { projects: newProjects })
         })
 })
 

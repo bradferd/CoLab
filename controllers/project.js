@@ -22,7 +22,11 @@ ProjectRouter.get('/:projectId', (req, res) => {
         .then(project => {
             taskApi.getTaskByProject(project._id)
                 .then(tasks => {
-                    res.render('projects/showProject', { project, tasks })
+                    const newTasks = tasks.map((t) => {
+                        t.shortDesc = t.description.substring(0, 143) + '...'
+                        return t
+                    })
+                    res.render('projects/showProject', { project, tasks: newTasks })
                 })
         })
 })

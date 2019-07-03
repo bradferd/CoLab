@@ -1,21 +1,24 @@
-<h2 class="display-4 text-center">{{user.username}}'s Projects</h2>
+<div class="jumbotron">
+     <h2 class="display-4 text-center">{{user.username}}'s Projects</h2>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <a 
-            href="/user/{{user._id}}/edit"
-            class="btn btn-warning"
-        >Edit User</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <a 
+                href="/user/{{user._id}}/edit"
+                class="btn btn-warning"
+            >Edit User</a>
 
-        <form action="/user/{{user._id}}?_method=DELETE" method="post">
-            <input 
-                type="submit" 
-                value="Delete User"
-                class="btn btn-danger ml-5"
-            >
-        </form>
+            <form action="/user/{{user._id}}?_method=DELETE" method="post">
+                <input 
+                    type="submit" 
+                    value="Delete User"
+                    class="btn btn-danger ml-5"
+                >
+            </form>
+        </div>
     </div>
-</div>
+</div> 
+   
 
 <div class="container">
     <div class="row justify-content-center">

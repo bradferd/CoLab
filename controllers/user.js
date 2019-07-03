@@ -30,7 +30,7 @@ UserRouter.get('/:userId/edit', (req, res) => {
 
 UserRouter.post('/new', (req, res) => {
   userApi.newUser(req.body)
-    .then(res.redirect('all'))
+    .then(res.redirect('/main'))
 })
 
 UserRouter.put('/:userId', (req, res) => {

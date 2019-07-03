@@ -17,7 +17,6 @@ UserRouter.get('/:userId', (req, res) => {
     .then(user => {
       projectApi.getProjectsByUser(user._id)
         .then(projects => {
-          console.log(projects)
           res.render('user/userProfile', { user, projects })
         })
     })

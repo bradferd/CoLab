@@ -1,0 +1,18 @@
+<div class="container text-center">
+    <h1 class="display-6">Browse our projects</h1>
+</div>
+<div class="container">
+    <div class="row">
+        {{#each projects}}
+            <div class="col-sm-4 mb-3">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <a href="/user/{{userId}}/projects/{{_id}}" class="btn btn-primary">Check Us Out</a>
+                </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

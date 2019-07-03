@@ -2,10 +2,10 @@
     <h2 class="display-4">{{project.name}}</h2>
     <div class="container">
     <div class="row justify-content-center">
-        <a class="btn btn-warning" href="/user/{{project.userId}}/projects/{{project._id}}/edit">Edit Project</a>
+        <a class="btn-sm btn-warning" href="/user/{{project.userId}}/projects/{{project._id}}/edit">Edit Project</a>
 
         <form action="/user/{{project.userId}}/projects/{{project._id}}?_method=DELETE" method="post">
-            <input class="btn btn-danger ml-5" type="submit" value="Delete Project">
+            <input class="btn-sm btn-danger ml-5" type="submit" value="Delete Project">
         </form>
     </div>
 </div>

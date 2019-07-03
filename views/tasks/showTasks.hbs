@@ -1,20 +1,14 @@
-<h2>{{task.name}}</h2>
-
-<p></p>
-
-<a href="{{task._id}}/edit">Edit Task</a>
-
-<form action="{{task._id}}?_method=DELETE" method="post">
-    <input type="submit" value="Delete Task">
-</form>
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{task.name}}</h5>
-    <p class="card-text">{{task.description}}</p>
+<div class="jumbotron text-left">
+    <h1 class="display-1">{{task.name}}</h1>
     <a href="{{task._id}}/edit">Edit Task</a>
     <form action="{{task._id}}?_method=DELETE" method="post">
         <input type="submit" value="Delete Task">
     </form>
-  </div>
+</div>
+
+
+
+<div class="container">
+    <h2 class="display-6">{{task.name}}</h2>
+    <p>{{task.description}}</p>
 </div>

@@ -1,7 +1,7 @@
 <div class="jumbotron text-center">
     <h1 class="display-1">{{task.name}}</h1>
     <div class="row justify-content-center">
-        <a class="btn-sm btn-warning mr-5" href="{{task._id}}/edit">Edit Task</a>
+        <button class="btn-sm btn-warning mr-5" href="{{task._id}}/edit">Edit Task</button>
         <form action="{{task._id}}?_method=DELETE" method="post">
             <input class="btn-sm btn-danger" type="submit" value="Delete Task">
         </form>

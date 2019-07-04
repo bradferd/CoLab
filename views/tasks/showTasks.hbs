@@ -1,7 +1,7 @@
 <div class="jumbotron text-center">
-    <h1 class="display-1">{{task.name}}</h1>
+    <h1 class="display-6">{{task.name}}</h1>
     <div class="row justify-content-center">
-        <button class="btn-sm btn-warning mr-5" href="{{task._id}}/edit">Edit Task</button>
+        <a href="{{task._id}}/edit"><button class="btn-sm btn-warning mr-5">Edit Task</button></a>
         <button type="button" class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal">
             Delete Task
         </button>

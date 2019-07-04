@@ -2,16 +2,21 @@
     <h1 class="display-6">Projects available for collaboration</h1>
 </div>
 <div class="container">
+    <hr>
     <div class="row">
         {{#each projects}}
-            <div class="col-sm-4 mb-3">
-                <div class="card mr-4">
-                <div class="card-body">
-                    <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">{{shortDesc}}</p>
-                    <a href="/user/{{userId}}/projects/{{_id}}" class="btn btn-primary">Check Us Out</a>
-                </div>
-                </div>
+            <div class="col-sm-4 m-auto mb-3">
+                <a 
+                    href="/user/{{userId}}/projects/{{_id}}"
+                    id="projectCards"
+                >
+                    <div class="card mr-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">{{shortDesc}}</p>
+                    </div>
+                    </div>
+                </a>
             </div>
         {{/each}}
     </div>

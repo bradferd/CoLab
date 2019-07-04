@@ -16,6 +16,11 @@ a#tasks {
   text-decoration: none;
 }
 
+a#projectCards {
+  color: #3a3335;
+  text-decoration: none;
+}
+
 .carousel-caption {
   position: absolute;
   z-index: 1;

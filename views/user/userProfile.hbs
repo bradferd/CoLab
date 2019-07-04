@@ -7,20 +7,42 @@
                 href="/user/{{user._id}}/edit"
             ><button class="btn-sm btn-warning"
                 >Edit User</button></a>
+            <button type="button" class="btn-sm btn-danger ml-5" data-toggle="modal" data-target="#deleteModal">
+            Delete User
+            </button>
 
-            <form action="/user/{{user._id}}?_method=DELETE" method="post">
-                <input 
-                    type="submit" 
-                    value="Delete User"
-                    class="btn-sm btn-danger ml-5"
-                >
-            </form>
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this account?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <form action="/user/{{user._id}}?_method=DELETE" method="post">
+                                <input 
+                                    type="submit" 
+                                    value="Delete User"
+                                    class="btn btn-danger"
+                                >
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div> 
    
 
 <div class="container">
+    <a 
+        href="{{user._id}}/projects/new"
+        class="btn btn-primary"
+    ><i class="material-icons">library_add</i></a>
     <div class="row justify-content-center">
         <div class="col-5 mb-5">
             <div class="list-group mb-5 mt-5">
@@ -37,10 +59,6 @@
                     </a>
                 {{/each}}
             </div>
-            <a 
-                href="{{user._id}}/projects/new"
-                class="btn btn-primary"
-            ><i class="material-icons">library_add</i></a>
         </div>
     </div>
 </div>

@@ -2,6 +2,7 @@
     <h2 class="display-4">{{project.name}}</h2>
     <div class="container">
     <div class="row justify-content-center">
+        <p>{{project.description}}</p>
         <a href="/user/{{project.userId}}/projects/{{project._id}}/edit">
             <button class="btn-sm btn-warning" href="">Edit Project</button>
         </a>
@@ -16,20 +17,20 @@
     <h3>Looking for help with:</h3>
 </div>
 <div class="container mt-5">
+        <a class="btn btn-primary mb-3"
+            href="/user/{{project.userId}}/projects/{{project._id}}/tasks/new">
+            <i class="material-icons">library_add</i>
+        </a>
     <div class="row mb-5">
         {{#each tasks}}
             <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{name}}</h5>
-                        <p class="card-text">{{shortDesc}}</p>
-                        <button 
-                            href="{{projectId}}/tasks/{{_id}}"
-                            class="btn btn-success" 
-                            data-toggle="modal" 
-                            data-target="#exampleModal"
-                        >Check out this task</button></a>
-                    </div>
+                <div class="card border-secondary" style="width: 18rem;">
+                    <a href="{{projectId}}/tasks/{{_id}}" id="tasks" data-toggle="modal" data-target="#exampleModal">
+                        <div class="card-body">
+                            <h5 class="card-title">{{name}}</h5>
+                            <p class="card-text">{{shortDesc}}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="taskModal" aria-hidden="true">
@@ -53,8 +54,4 @@
             </div>    
         {{/each}}
     </div>
-    <a class="btn btn-primary"
-        href="/user/{{project.userId}}/projects/{{project._id}}/tasks/new">
-        <i class="material-icons">library_add</i>
-    </a>
 </div>

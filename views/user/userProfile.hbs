@@ -1,15 +1,24 @@
 <div class="jumbotron">
-     <h2 class="display-4 text-center">{{user.username}}'s Projects</h2>
+     <h1 class="display-4 text-center">{{user.username}}'s Projects</h1>
 
     <div class="container">
         <div class="row justify-content-center">
             <a 
                 href="/user/{{user._id}}/edit"
-            ><button class="btn-sm btn-warning"
-                >Edit User</button></a>
-            <button type="button" class="btn-sm btn-danger ml-5" data-toggle="modal" data-target="#deleteModal">
-            Delete User
-            </button>
+                id="edit"
+            ><i class="material-icons">
+                edit
+            </i></a>
+            <a 
+                data-toggle="modal" 
+                data-target="#deleteModal"
+                class="ml-3"
+                id="delete"
+            >
+                <i class="material-icons">
+                    delete
+                </i>
+            </a>
 
             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -41,7 +50,7 @@
 <div class="container">
     <a 
         href="{{user._id}}/projects/new"
-        class="btn btn-primary"
+        class="btn btn-primary float-right"
     ><i class="material-icons">library_add</i></a>
     <div class="row justify-content-center">
         <div class="col-5 mb-5">

@@ -1,10 +1,22 @@
 <div class="jumbotron text-center">
     <h1 class="display-6">{{task.name}}</h1>
     <div class="row justify-content-center">
-        <a href="{{task._id}}/edit"><button class="btn-sm btn-warning mr-5">Edit Task</button></a>
-        <button type="button" class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal">
-            Delete Task
-        </button>
+         <a 
+                href="{{task._id}}/edit"
+                id="edit"
+            ><i class="material-icons">
+                edit
+            </i></a>
+            <a 
+                data-toggle="modal" 
+                data-target="#deleteModal"
+                class="ml-3"
+                id="delete"
+            >
+                <i class="material-icons">
+                    delete
+                </i>
+            </a>
 
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

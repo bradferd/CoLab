@@ -1,15 +1,20 @@
 <div class="jumbotron text-center">
-    <h2 class="display-4">{{project.name}}</h2>
+    <h1 class="display-4">{{project.name}}</h1>
+        <a href="/user/{{project.userId}}/projects/{{project._id}}/edit"
+            id="edit">
+            <i class="material-icons">
+                edit
+            </i>
+        </a>
+
+        <a id="delete" data-toggle="modal" data-target="#deleteModal">
+            <i class="material-icons">
+                delete
+            </i>
+        </a>
     <div class="container">
     <div class="row justify-content-center">
         <p>{{project.description}}</p>
-        <a href="/user/{{project.userId}}/projects/{{project._id}}/edit">
-            <button class="btn-sm btn-warning mr-3" href="">Edit Project</button>
-        </a>
-
-        <button type="button" class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal">
-            Delete Project
-        </button>
 
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

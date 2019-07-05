@@ -3,13 +3,17 @@ h1 {
   font-family: 'Righteous', cursive;
 }
 
+nav.navbar {
+  background-color: #424b54;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
 
 body {
   color: #3a3335;
-  background-color: #fffcf9;
+  background-color: #e9ecef;
 }
 
 a#delete {
@@ -21,9 +25,10 @@ a#edit {
   color: #3a3335;
 }
 
-/* .jumbotron {
-  background-color: #c8553d;
-} */
+.btn-primary {
+  background-color: #2292a4;
+  border-color: #2292a4;
+}
 
 a#tasks {
   color: #3a3335;
@@ -33,6 +38,10 @@ a#tasks {
 a#projectCards {
   color: #3a3335;
   text-decoration: none;
+}
+
+li.list-group-item a {
+  color: #00120b;
 }
 
 .carousel-caption {

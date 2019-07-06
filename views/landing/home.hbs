@@ -2,7 +2,8 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
         <div class="absolute-div carousel-caption">
-            <h3 class="display-4">CoLab</h3>
+            <h1 class="display-4">CoLab</h1>
+            <a href="#"><button class="btn btn-primary" data-toggle="modal" data-target="#userModal">Get Started</button></a>
         </div>
         <img 
             src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit" 
@@ -18,7 +19,8 @@
         alt="people talking around a computer"
         >
         <div class="absolute-div carousel-caption">
-            <h3 class="display-4">CoLab</h3>
+            <h1 class="display-4">CoLab</h1>
+            <a href="#"><button class="btn btn-primary" data-toggle="modal" data-target="#userModal">Get Started</button></a>
         </div>
     </div>
     <div class="carousel-item">
@@ -28,8 +30,26 @@
         alt="hands up"
         >
         <div class="absolute-div carousel-caption">
-            <h3 class="display-4">CoLab</h3>
+            <h1 class="display-4">CoLab</h1>
+            <a href="#"><button class="btn btn-primary" data-toggle="modal" data-target="#userModal">Get Started</button></a>
         </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you a returning user?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <a href="/user/all"><button type="button" class="btn btn-success">Yes</button></a>
+        <a href="/user/new"><button type="button" class="btn btn-primary">No</button></a>
+      </div>
     </div>
   </div>
 </div>

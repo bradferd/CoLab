@@ -40,7 +40,7 @@ TasksRouter.post('/', (req, res) => {
 })
 
 TasksRouter.put('/:taskId', (req, res) => {
-    taskApi.updateTask(req.params.taskId, req.body)
+    taskApi.editTask(req.params.taskId, req.body)
         .then(() => {
             res.redirect(`/user/${req.params.userId}/projects/${req.params.projectId}`)
         })

@@ -68,4 +68,9 @@ li.list-group-item a {
 
 .carousel-item {
   position: relative;
+  height: 640px;
+}
+
+.carousel.slide {
+  height: 90%;
 }

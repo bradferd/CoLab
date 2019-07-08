@@ -49,7 +49,7 @@
         {{#each tasks}}
             <div class="col-sm-4">
                 <div class="card border-secondary" style="width: 18rem;">
-                    <a href="{{projectId}}/tasks/{{_id}}" id="tasks" data-toggle="modal" data-target="#exampleModal">
+                    <a href="{{projectId}}/tasks/{{_id}}" id="tasks" data-toggle="modal" data-target="#popup-modal-{{@index}}">
                         <div class="card-body">
                             <h5 class="card-title">{{name}}</h5>
                             <p class="card-text">{{shortDesc}}</p>
@@ -57,7 +57,7 @@
                     </a>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="taskModal" aria-hidden="true">
+            <div class="modal fade" id="popup-modal-{{@index}}" tabindex="-1" role="dialog" aria-labelledby="taskModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">

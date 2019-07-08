@@ -16,6 +16,10 @@ body {
   background-color: #e9ecef;
 }
 
+.card {
+  height: 220px;
+}
+
 a#delete {
   cursor: pointer;
 }
